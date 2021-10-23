@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
   auxButton: {
     marginBottom: 30,
   },
+  pickerCap: {
+    borderWidth: 1,
+    borderColor: '#c2c2c2',
+  },
 });
 
 export default styles;

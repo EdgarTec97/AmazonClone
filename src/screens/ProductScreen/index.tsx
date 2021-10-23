@@ -19,14 +19,16 @@ const ProductScreen = () => {
       {/* Image Carousel */}
       <ImageCarousel images={product.images} />
       {/* Option Selector */}
-      <Picker
-        selectedValue={selectedOption}
-        onValueChange={itemValue => setSelectedOption(itemValue)}
-        style={styles.picker}>
-        {product.options.map((item, index) => (
-          <Picker.Item key={index} label={item} value={item} />
-        ))}
-      </Picker>
+      <View style={styles.pickerCap}>
+        <Picker
+          selectedValue={selectedOption}
+          onValueChange={itemValue => setSelectedOption(itemValue)}
+          style={styles.picker}>
+          {product.options.map((item, index) => (
+            <Picker.Item key={index} label={item} value={item} />
+          ))}
+        </Picker>
+      </View>
       {/* Price */}
       <Text style={styles.price}>
         from ${product.price}{' '}
