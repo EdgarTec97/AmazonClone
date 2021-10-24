@@ -6,7 +6,7 @@ import CartProductItem from '../../components/CartProductItem';
 import Button from '../../components/Button';
 import products from '../../data/cart';
 
-const ShoopingCartScreen = () => {
+const ShoppingCartScreen = () => {
   const totalPrice = products.reduce(
     (summedPrice, product) =>
       summedPrice + product.item.price * product.quantity,
@@ -63,4 +63,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ShoopingCartScreen;
+export default ShoppingCartScreen;
