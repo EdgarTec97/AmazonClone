@@ -2,16 +2,31 @@ import React, {useState} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import styles from './styles';
-import product from '../../data/product';
+import {useRoute} from '@react-navigation/core';
 import QuantitySelector from '../../components/QuantitySelector';
 import Button from '../../components/Button';
 import ImageCarousel from '../../components/ImageCarousel';
 
-const ProductScreen = () => {
+interface ProductItem {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  images: string[];
+  options: string[];
+  avgRating: number;
+  ratings: number;
+  price: number;
+  oldPrice?: number;
+}
+
+const ProductScreen = (props: any) => {
+  const {params} = useRoute();
+  const product = params as ProductItem;
   const [selectedOption, setSelectedOption] = useState<string>(
     product.options ? product.options[0] : '',
   );
-  const [quantity, setQuantity] = useState<number>(5);
+  const [quantity, setQuantity] = useState<number>(1);
 
   return (
     <ScrollView style={styles.root}>
@@ -24,7 +39,7 @@ const ProductScreen = () => {
           selectedValue={selectedOption}
           onValueChange={itemValue => setSelectedOption(itemValue)}
           style={styles.picker}>
-          {product.options.map((item, index) => (
+          {product.options.map((item: any, index: any) => (
             <Picker.Item key={index} label={item} value={item} />
           ))}
         </Picker>
