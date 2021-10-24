@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import HeaderComponent from './HeaderComponent';
+import HeaderComponent from '../components/HeaderComponent';
 import AddressScren from '../screens/AddressScreen';
 
 const Stack = createStackNavigator();

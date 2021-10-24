@@ -28,6 +28,16 @@ const HeaderComponent = ({
           value={searchValue}
           onChangeText={setSearchValue}
         />
+        <Feather
+          name="mic"
+          size={20}
+          style={{position: 'absolute', right: 60}}
+        />
+        <Feather
+          name="camera"
+          size={20}
+          style={{position: 'absolute', right: 20}}
+        />
       </View>
     </SafeAreaView>
   );

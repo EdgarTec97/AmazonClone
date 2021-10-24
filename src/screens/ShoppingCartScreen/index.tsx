@@ -1,17 +1,23 @@
 import React from 'react';
 import {View, StyleSheet, FlatList, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import {useNavigation} from '@react-navigation/native';
 import CheckBox from '@react-native-community/checkbox';
 import CartProductItem from '../../components/CartProductItem';
 import Button from '../../components/Button';
 import products from '../../data/cart';
 
 const ShoppingCartScreen = () => {
+  const navigation = useNavigation();
   const totalPrice = products.reduce(
     (summedPrice, product) =>
       summedPrice + product.item.price * product.quantity,
     0,
   );
+
+  const onCheckout = () => {
+    navigation.navigate('Address', {});
+  };
   return (
     <View style={styles.page}>
       <FlatList
@@ -39,7 +45,7 @@ const ShoppingCartScreen = () => {
                 borderColor: '#f7e300',
                 height: 45,
               }}
-              onPress={() => console.warn('go to checkout')}
+              onPress={onCheckout}
             />
             <CheckBox disabled={false} value={false} />
             <Text style={styles.check}>

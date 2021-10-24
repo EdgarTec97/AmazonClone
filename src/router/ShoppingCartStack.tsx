@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import ShoppingCartScreen from '../screens/ShoppingCartScreen';
 import AddressScreen from '../screens/AddressScreen';
-import HeaderComponent from './HeaderComponent';
+import HeaderComponent from '../components/HeaderComponent';
 
 const Stack = createStackNavigator();
 
